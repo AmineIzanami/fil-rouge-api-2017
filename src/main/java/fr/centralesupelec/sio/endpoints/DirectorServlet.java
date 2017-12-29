@@ -2,8 +2,10 @@ package fr.centralesupelec.sio.endpoints;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import fr.centralesupelec.sio.data.DatabaseDirectorsRepository;
 import fr.centralesupelec.sio.data.MoviesRepository;
 import fr.centralesupelec.sio.endpoints.utils.ResponseHelper;
+import fr.centralesupelec.sio.model.Director;
 import fr.centralesupelec.sio.model.Movie;
 import fr.centralesupelec.sio.model.MovieGenre;
 import org.json.JSONObject;
@@ -22,17 +24,17 @@ import java.util.Map;
 import static fr.centralesupelec.sio.model.MovieGenre.getGenres;
 
 
-@WebServlet(urlPatterns = "/genres")
-public class GenreServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/directors")
+public class DirectorServlet extends HttpServlet {
 
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        resp.setContentType("application/json");
-        JSONObject jsonObj = new JSONObject(getGenres(MovieGenre.class).toString());
+        List<Director> movies = DatabaseDirectorsRepository.getAllDirectors();
 
-        resp.getWriter().write(String.valueOf(jsonObj));
+        //Write to the response.
+        ResponseHelper.writeJsonResponse(resp,movies);
     }
 
 }

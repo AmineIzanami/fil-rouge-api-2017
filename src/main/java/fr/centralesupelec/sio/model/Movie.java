@@ -11,9 +11,37 @@ public class Movie {
     private String title;
     // MovieGenre is an enum, combinations of enums are best handled by EnumSet.
     private EnumSet<MovieGenre> genres;
+    private String genreMovie;
+    private String director;
+
+    public String getDirector() {
+        return director;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public String getActors() {
+        return actors;
+    }
+
+    public void setActors(String actors) {
+        this.actors = actors;
+    }
+
+    private String actors;
 
     public long getId() {
         return id;
+    }
+
+    public String getGenreMovie() {
+        return genreMovie;
+    }
+
+    public void setGenreMovie(String genreMovie) {
+        this.genreMovie = genreMovie;
     }
 
     public void setId(long id) {
@@ -35,5 +63,4 @@ public class Movie {
     public void setGenres(EnumSet<MovieGenre> genres) {
         this.genres = genres;
     }
-
 }

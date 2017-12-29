@@ -6,6 +6,7 @@ import fr.centralesupelec.sio.model.MovieGenre;
 import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.List;
+import java.sql.*;
 
 /**
  * A concrete {@link MoviesRepository} backed by an in-memory list of static {@link Movie} entities.
@@ -47,4 +48,8 @@ class DummyMoviesRepository extends MoviesRepository {
                 .orElse(null);
     }
 
-}
+
+
+    }
+
+
