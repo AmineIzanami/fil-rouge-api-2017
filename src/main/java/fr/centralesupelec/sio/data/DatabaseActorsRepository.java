@@ -22,7 +22,7 @@ public class DatabaseActorsRepository {
         PreparedStatement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\ee\\Desktop\\Sqlite (1)\\actors.db");
+            c = DriverManager.getConnection("jdbc:sqlite:Database\\actors.db");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
@@ -60,7 +60,7 @@ public class DatabaseActorsRepository {
         String nameActor = "";
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\ee\\Desktop\\Sqlite (1)\\actors.db");
+            c = DriverManager.getConnection("jdbc:sqlite:Database\\actors.db");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 

@@ -37,7 +37,7 @@ public class DatabaseMoviesRepository extends MoviesRepository {
         Statement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\ee\\Desktop\\Sqlite (1)\\movies.db");
+            c = DriverManager.getConnection("jdbc:sqlite:Database\\movies.db");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
@@ -77,7 +77,7 @@ public class DatabaseMoviesRepository extends MoviesRepository {
         PreparedStatement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\ee\\Desktop\\Sqlite (1)\\movies.db");
+            c = DriverManager.getConnection("jdbc:sqlite:Database\\movies.db");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
@@ -120,7 +120,7 @@ public class DatabaseMoviesRepository extends MoviesRepository {
         PreparedStatement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\ee\\Desktop\\Sqlite (1)\\movies.db");
+            c = DriverManager.getConnection("jdbc:sqlite:Database\\movies.db");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
@@ -164,7 +164,7 @@ public class DatabaseMoviesRepository extends MoviesRepository {
             PreparedStatement stmt = null;
             try {
                 Class.forName("org.sqlite.JDBC");
-                c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\ee\\Desktop\\Sqlite (1)\\movies.db");
+                c = DriverManager.getConnection("jdbc:sqlite:Database\\movies.db");
                 c.setAutoCommit(false);
                 System.out.println("Opened database successfully");
 
@@ -207,7 +207,7 @@ public class DatabaseMoviesRepository extends MoviesRepository {
         PreparedStatement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\ee\\Desktop\\Sqlite (1)\\movies.db");
+            c = DriverManager.getConnection("jdbc:sqlite:Database\\movies.db");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
@@ -249,7 +249,7 @@ public class DatabaseMoviesRepository extends MoviesRepository {
         PreparedStatement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\ee\\Desktop\\Sqlite (1)\\movies.db");
+            c = DriverManager.getConnection("jdbc:sqlite:Database\\movies.db");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
