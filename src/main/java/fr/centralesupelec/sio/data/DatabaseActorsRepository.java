@@ -9,9 +9,7 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
-/**
- * A {@link MoviesRepository} backed by a database.
- */
+
 // Example implementation of another storage
 public class DatabaseActorsRepository {
 
@@ -22,7 +20,7 @@ public class DatabaseActorsRepository {
         PreparedStatement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:Database\\actors.db");
+            c = DriverManager.getConnection("jdbc:sqlite:\\resources\\actors.db");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
@@ -58,9 +56,11 @@ public class DatabaseActorsRepository {
         Connection c = null;
         PreparedStatement stmt = null;
         String nameActor = "";
+
         try {
+
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:Database\\actors.db");
+            c = DriverManager.getConnection("jdbc:sqlite:resources\\actors.db");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 

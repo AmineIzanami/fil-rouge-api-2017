@@ -6,7 +6,7 @@ import fr.centralesupelec.sio.model.Account;
  * A data repository to expose account-related entities.
  */
 // See MoviesRepository for architecture details
-public abstract class AccountsRepository {
+public abstract class AccountsRepository  {
 
     // Singleton pattern
     private static AccountsRepository sRepository;

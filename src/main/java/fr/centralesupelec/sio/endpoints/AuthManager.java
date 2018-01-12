@@ -1,6 +1,7 @@
 package fr.centralesupelec.sio.endpoints;
 
 import fr.centralesupelec.sio.data.AccountsRepository;
+import fr.centralesupelec.sio.model.Token;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.impl.TextCodec;
 
@@ -13,6 +14,7 @@ public class AuthManager {
 
     // This is a random private key used to sign the tokens.
     // This should be kept secret on the server.
+
     private static final byte[] SIGNATURE = TextCodec.BASE64.decode("b5dfdd86fdc777b34b78a7fe976aef9b54767400e73bae310b74ab2884a109b6");
 
     // Our authority name as a issuer and consumer of JWT.
@@ -42,8 +44,7 @@ public class AuthManager {
                     .parseClaimsJws(accessToken) // This will throw JwtException in case of an invalid token.
                     .getBody();
             String username = claims.getSubject();
-            // Check that the user still exists
-            // TODO: Maybe add a better mechanism?
+
             return AccountsRepository.getInstance().getAccount(username) != null;
         } catch (JwtException ex) {
             return false;

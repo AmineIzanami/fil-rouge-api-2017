@@ -2,7 +2,7 @@ package fr.centralesupelec.sio.endpoints;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import fr.centralesupelec.sio.data.MoviesRepository;
+
 import fr.centralesupelec.sio.endpoints.utils.ResponseHelper;
 import fr.centralesupelec.sio.model.Movie;
 import fr.centralesupelec.sio.model.MovieGenre;

@@ -12,32 +12,18 @@ import java.util.List;
 import static fr.centralesupelec.sio.data.DatabaseActorsRepository.getNameActor;
 import static fr.centralesupelec.sio.data.DatabaseDirectorsRepository.getNameDirector;
 
-/**
- * A {@link MoviesRepository} backed by a database.
- */
+
 // Example implementation of another storage
-public class DatabaseMoviesRepository extends MoviesRepository {
-
-    @Override
-    public List<Movie> getMovies() {
-        // TODO
-        throw new UnsupportedOperationException("Not implemented!");
-    }
-
-    @Override
-    public Movie getMovie(long id) {
-        // TODO
-        throw new UnsupportedOperationException("Not implemented!");
-    }
-
+public class DatabaseMoviesRepository  {
     public static List<Movie> getAllMovies(){
+
         List<Movie> mMovies = new ArrayList<Movie>();;
 
         Connection c = null;
         Statement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:Database\\movies.db");
+            c = DriverManager.getConnection("jdbc:sqlite:resources\\movies.db");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
@@ -70,14 +56,14 @@ public class DatabaseMoviesRepository extends MoviesRepository {
 
         return mMovies;
     }
+
     public static List<Movie> getMovieByTitle(String movieTitle){
         List<Movie> mMovies = new ArrayList<Movie>();;
-
         Connection c = null;
         PreparedStatement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:Database\\movies.db");
+            c = DriverManager.getConnection("jdbc:sqlite:resources\\movies.db");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
@@ -120,7 +106,7 @@ public class DatabaseMoviesRepository extends MoviesRepository {
         PreparedStatement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:Database\\movies.db");
+            c = DriverManager.getConnection("jdbc:sqlite:resources\\movies.db");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
@@ -164,7 +150,7 @@ public class DatabaseMoviesRepository extends MoviesRepository {
             PreparedStatement stmt = null;
             try {
                 Class.forName("org.sqlite.JDBC");
-                c = DriverManager.getConnection("jdbc:sqlite:Database\\movies.db");
+                c = DriverManager.getConnection("jdbc:sqlite:resources\\movies.db");
                 c.setAutoCommit(false);
                 System.out.println("Opened database successfully");
 
@@ -207,7 +193,7 @@ public class DatabaseMoviesRepository extends MoviesRepository {
         PreparedStatement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:Database\\movies.db");
+            c = DriverManager.getConnection("jdbc:sqlite:resources\\movies.db");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
@@ -242,22 +228,23 @@ public class DatabaseMoviesRepository extends MoviesRepository {
 
         return mMovies;
     }
-    public static List<Movie> getMoviesByAll(String movieTitle,String movieGenre, String movieDirector,Integer limit){
+    public static List<Movie> getMoviesByAll(String movieTitle,String movieGenre, String movieDirector){
         List<Movie> mMovies = new ArrayList<Movie>();;
         String nameDirector = getNameDirector(movieDirector);
         Connection c = null;
         PreparedStatement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:Database\\movies.db");
+            // load of an sqlit db
+            c = DriverManager.getConnection("jdbc:sqlite:resources\\movies.db");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
-            stmt = c.prepareStatement("SELECT * from movies WHERE title like upper(?) and genres like ? and Director like ? limit ?");
+            stmt = c.prepareStatement("SELECT * from movies WHERE title like upper(?) and genres like upper(?) and Director like ? ");
             stmt.setString(1, "%" + movieTitle.toUpperCase()+ "%");
-            stmt.setString(2, "%" + movieGenre+ "%");
+            stmt.setString(2, "%" + movieGenre.toUpperCase()+ "%");
             stmt.setString(3, "%" + nameDirector + "%");
-            stmt.setString(4, "%" + limit + "%");
+
             ResultSet rs = stmt.executeQuery( );
 
             while ( rs.next() ) {

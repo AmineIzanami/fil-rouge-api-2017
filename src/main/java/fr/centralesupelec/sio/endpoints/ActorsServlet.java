@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.centralesupelec.sio.data.DatabaseActorsRepository;
 import fr.centralesupelec.sio.data.DatabaseMoviesRepository;
-import fr.centralesupelec.sio.data.MoviesRepository;
+
 import fr.centralesupelec.sio.endpoints.utils.ResponseHelper;
 import fr.centralesupelec.sio.model.Actor;
 import fr.centralesupelec.sio.model.Movie;
@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.sun.tools.doclint.Entity.and;
+
 import static fr.centralesupelec.sio.model.MovieGenre.getGenres;
 
 

@@ -60,7 +60,8 @@ public class AuthServlet extends HttpServlet {
         // Check the password
         // TODO: Better check with a hash
         if (!account.getPasswordHash().equals(password)) {
-            ResponseHelper.writeError(resp,"Invalid credentials", resp.SC_UNAUTHORIZED);
+            // normally the application will send the password hashed in md5 but now since its an api without other interaction the password must be in md5
+            ResponseHelper.writeError(resp,"Invalid credentials, please encrypte your password in MD5 before", resp.SC_UNAUTHORIZED);
             return;
         }
 

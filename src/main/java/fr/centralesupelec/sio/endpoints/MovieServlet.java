@@ -1,6 +1,5 @@
 package fr.centralesupelec.sio.endpoints;
 
-import fr.centralesupelec.sio.data.MoviesRepository;
 import fr.centralesupelec.sio.endpoints.utils.ResponseHelper;
 import fr.centralesupelec.sio.model.Movie;
 
@@ -32,13 +31,7 @@ public class MovieServlet extends HttpServlet {
             return;
         }
 
-        // Find movie from the repository.
-        Movie movie = MoviesRepository.getInstance().getMovie(id);
-        if (movie != null) {
-            ResponseHelper.writeJsonResponse(resp, movie);
-        } else {
-            ResponseHelper.writeError(resp, "Movie not found", HttpServletResponse.SC_NOT_FOUND);
-        }
+
     }
 
 }
